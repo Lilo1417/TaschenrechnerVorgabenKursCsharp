@@ -17,18 +17,21 @@ namespace TaschenrechnerVorgaben
 			this.model = model;
 	    }
 
-		public void Ausfueren() 
-		{
-            view.HoleEingabenVomBenutzer();
-            
-
+        public void Ausfueren()
+        {
+            view.HoleEingabenFuerErsteBerechnungVomBenutzer();
             model.Berechne();
-
-            // Ausgabe
             view.GibResultatAus();
-            view.WarteAufEndeVonBenutzer();
-        }
+            view.HoleEingabenFuerFortlaufendeBerechnung();
 
+            while (!view.BenutzerWillBeenden)
+            {
+                model.Berechne();
+                view.GibResultatAus();
+                view.HoleEingabenFuerFortlaufendeBerechnung();            
+            
+            }
+        }
 	}
 
 }

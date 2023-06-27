@@ -16,10 +16,39 @@ namespace TaschenrechnerVorgaben
         public ConsoleView(RechnerModel model)
         {
             this.model = model;
+            BenutzerWillBeenden = false;
         }
     
  
+        public bool BenutzerWillBeenden { get; private set; }
 
+        public void HoleEingabenFuerErsteBerechnungVomBenutzer()
+        {
+            model.ErsteZahl = HoleZahlVonBenutzer();
+            model.Operation = HoleOperatorVonBenutzer();
+            model.ZweiteZahl = HoleZahlVonBenutzer();
+        }
+
+        public void HoleEingabenFuerFortlaufendeBerechnung()
+        {
+            string? eingabe = HoleNaechsteAktionVomBenutzer();
+
+            if (eingabe == "Fertig")
+            {
+                BenutzerWillBeenden = true;
+            }
+            else
+            {
+                model.ErsteZahl = model.Resultat;
+                model.ZweiteZahl = Convert.ToDouble(eingabe);
+            }
+        }
+
+        private string? HoleNaechsteAktionVomBenutzer()
+        {
+            Console.Write("Bitte gib eine weitere Zahl ein (Fertig zum Beenden): ");
+            return Console.ReadLine();
+        }
 
         public void GibResultatAus()
         {
@@ -47,6 +76,10 @@ namespace TaschenrechnerVorgaben
             }
         }
 
+      
+
+       
+
         public void HoleEingabenVomBenutzer() 
         {
             model.ErsteZahl = HoleZahlVonBenutzer();
@@ -55,10 +88,11 @@ namespace TaschenrechnerVorgaben
         }
         public double HoleZahlVonBenutzer()
         {
-            Console.WriteLine("Bitte gebe die Zahl für die Berechnung ein:");
-            string? zahl = Console.ReadLine();
+            Console.WriteLine("Bitte gebe die Zahl für die Berechnung ein (FERTIG zum beenden):");
+            string? eingabe = Console.ReadLine();
 
-            return Convert.ToDouble(zahl);
+
+            return Convert.ToDouble(eingabe);
         
         }
 
@@ -68,10 +102,6 @@ namespace TaschenrechnerVorgaben
             return Console.ReadLine();
         }
 
-        public void WarteAufEndeVonBenutzer()
-        {
-            Console.WriteLine("Um Das Programm zu schliessen, klicke Return");
-            Console.ReadLine();
-        }
+      
     }
 }
