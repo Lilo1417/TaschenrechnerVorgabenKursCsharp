@@ -21,9 +21,9 @@ namespace TaschenrechnerVorgaben
  
 
 
-        public void GibResultatAus(string? operation)
+        public void GibResultatAus()
         {
-            switch (operation)
+            switch (model.Operation)
             {
                 case "+":
                     Console.WriteLine("Die Summe ist: {0}", model.Resultat);
@@ -46,10 +46,13 @@ namespace TaschenrechnerVorgaben
                     break;
             }
         }
-        public string? HoleZahlVonBenutzer()
+        public double HoleZahlVonBenutzer()
         {
             Console.WriteLine("Bitte gebe die Zahl für die Berechnung ein:");
-            return Console.ReadLine();
+            string? zahl = Console.ReadLine();
+
+            return Convert.ToDouble(zahl);
+        
         }
 
         public string? HoleOperatorVonBenutzer()
