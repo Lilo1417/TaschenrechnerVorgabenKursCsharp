@@ -2,7 +2,7 @@
 using System.Transactions;
 using TaschenrechnerVorgaben;
 
-namespace Taschenrechner
+namespace TaschenrechnerVorgaben
 {
     class Program
     {
@@ -11,21 +11,9 @@ namespace Taschenrechner
            
             RechnerModel model = new RechnerModel();
             ConsoleView view = new ConsoleView(model);
-            string ersteZahlAlsString = view.HoleZahlVonBenutzer();
-            string operation = view.HoleOperatorVonBenutzer();
-            string zweiteZahlAlsString = view.HoleZahlVonBenutzer();
+            AnwendungsController controller = new AnwendungsController(view, model);
 
-            // Wandel Text in Gleikommazahlen
-            // TODO: Auslagern in Methode, wenn Struktur umfangreicher geworden ist.
-            double ersteZahl = Convert.ToDouble(ersteZahlAlsString);
-            double zweiteZahl = Convert.ToDouble(zweiteZahlAlsString);
-
-            // Berechnung ausführen
-            model.Berechne(ersteZahl, zweiteZahl, operation);
-
-            // Ausgabe
-            view.GibResultatAus(operation);
-            view.WarteAufEndeVonBenutzer();
+            controller.Ausfueren();
         }
 
 

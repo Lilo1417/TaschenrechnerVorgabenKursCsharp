@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TaschenrechnerVorgaben
 {
-    internal class RechnerModel
+    public class RechnerModel
     {
         public double Resultat{ get; private set; }
      
@@ -14,7 +14,7 @@ namespace TaschenrechnerVorgaben
         {
             Resultat = 0;
         }
-        public void Berechne(double ersteZahl, double zweiteZahl, string operation)
+        public void Berechne(double ersteZahl, double zweiteZahl, string? operation)
         {
             
             switch (operation)

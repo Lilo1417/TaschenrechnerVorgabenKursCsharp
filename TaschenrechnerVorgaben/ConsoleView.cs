@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace TaschenrechnerVorgaben
 {
 
-    internal class ConsoleView
+    public class ConsoleView
     {
         private RechnerModel model;
 
@@ -21,7 +21,7 @@ namespace TaschenrechnerVorgaben
  
 
 
-        public void GibResultatAus(string operation)
+        public void GibResultatAus(string? operation)
         {
             switch (operation)
             {
@@ -46,13 +46,13 @@ namespace TaschenrechnerVorgaben
                     break;
             }
         }
-        public string HoleZahlVonBenutzer()
+        public string? HoleZahlVonBenutzer()
         {
             Console.WriteLine("Bitte gebe die Zahl für die Berechnung ein:");
             return Console.ReadLine();
         }
 
-        public string HoleOperatorVonBenutzer()
+        public string? HoleOperatorVonBenutzer()
         {
             Console.WriteLine("Was ist die der Operator (+, -, *, /)?");
             return Console.ReadLine();
