@@ -46,6 +46,13 @@ namespace TaschenrechnerVorgaben
                     break;
             }
         }
+
+        public void HoleEingabenVomBenutzer() 
+        {
+            model.ErsteZahl = HoleZahlVonBenutzer();
+            model.Operation = HoleOperatorVonBenutzer();
+            model.ZweiteZahl = HoleZahlVonBenutzer();
+        }
         public double HoleZahlVonBenutzer()
         {
             Console.WriteLine("Bitte gebe die Zahl für die Berechnung ein:");
@@ -55,7 +62,7 @@ namespace TaschenrechnerVorgaben
         
         }
 
-        public string? HoleOperatorVonBenutzer()
+        private string? HoleOperatorVonBenutzer()
         {
             Console.WriteLine("Was ist die der Operator (+, -, *, /)?");
             return Console.ReadLine();

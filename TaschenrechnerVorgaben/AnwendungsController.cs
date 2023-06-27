@@ -19,12 +19,10 @@ namespace TaschenrechnerVorgaben
 
 		public void Ausfueren() 
 		{
-            double ersteZahl= view.HoleZahlVonBenutzer();
-            string? operation = view.HoleOperatorVonBenutzer();
-            double zweiteZahl= view.HoleZahlVonBenutzer();
+            view.HoleEingabenVomBenutzer();
+            
 
-            // Berechnung ausführen
-            model.Berechne(ersteZahl, zweiteZahl, operation);
+            model.Berechne();
 
             // Ausgabe
             view.GibResultatAus();
