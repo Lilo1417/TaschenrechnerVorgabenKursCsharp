@@ -88,12 +88,26 @@ namespace TaschenrechnerVorgaben
         }
         public double HoleZahlVonBenutzer()
         {
+
+            string? eingabe;
+            double zahl;
             Console.WriteLine("Bitte gebe die Zahl für die Berechnung ein (FERTIG zum beenden):");
-            string? eingabe = Console.ReadLine();
+            eingabe = Console.ReadLine();
 
+           while(!Double.TryParse(eingabe, out zahl)) 
+            {
+                Console.WriteLine("Du musst eine gültige Gleitkommazahl eingeben");
+                Console.WriteLine("Neben den Ziffern 0-9 sind nur folgende Sonderzeichen erlaubt: ,'-");
+                Console.WriteLine("Dabei muss das - als erstes Zeichen von einer Ziffer gesetzt werden.");
+                Console.WriteLine("das ' fungiert als Trennzeichen an Tausenderstellen.");
+                Console.WriteLine("Das , ist als Trennzeichen für die Nachkommastellen.");
+                Console.WriteLine("Alle drei sonderzeichen sind optional!!");
+                Console.WriteLine();
+                Console.WriteLine("Bitte gebe erneut die Zahl für die Berechnung ein: ");
+                eingabe = Console.ReadLine();
 
-            return Convert.ToDouble(eingabe);
-        
+            }
+           return zahl;
         }
 
         private string? HoleOperatorVonBenutzer()

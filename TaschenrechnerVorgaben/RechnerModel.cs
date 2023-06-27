@@ -20,7 +20,6 @@ namespace TaschenrechnerVorgaben
         }
         public void Berechne()
         {
-            
             switch (Operation)
             {
                 case "+":
@@ -38,6 +37,8 @@ namespace TaschenrechnerVorgaben
                 case "*":
                     Resultat = Multipliziere(ErsteZahl, ZweiteZahl);
                     break;
+
+           
             }
 
         }
