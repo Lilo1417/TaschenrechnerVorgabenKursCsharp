@@ -33,7 +33,7 @@ namespace TaschenrechnerVorgaben
         {
             string? eingabe = HoleNaechsteAktionVomBenutzer();
 
-            if (eingabe == "Fertig")
+            if (eingabe?.ToUpper() == "Fertig")
             {
                 BenutzerWillBeenden = true;
             }

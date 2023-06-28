@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace TaschenrechnerVorgaben
 {
+
+   
     public class RechnerModel
     {
         public double Resultat{ get; private set; }
@@ -43,6 +45,7 @@ namespace TaschenrechnerVorgaben
 
         }
 
+        //Methoden
         private double Addiere(double ersterSummand, double zweiterSummand)
         {
             double summe = ersterSummand + zweiterSummand;
